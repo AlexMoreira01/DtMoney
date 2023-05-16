@@ -14,6 +14,8 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
 function SearchFormComponent() {
+  const isMobile = window.innerWidth <= 768;
+
   const fetchTransactions = useContextSelector(
     TransactionsContext,
     (context) => {
@@ -44,10 +46,10 @@ function SearchFormComponent() {
 
       <button type="submit" disabled={isSubmitting}>
         <MagnifyingGlass size={20} />
-        Buscar
+        {isMobile ? "" : "Buscar"}
       </button>
     </SearchFormContainer>
   );
 }
 
-export const SeacrhForm = memo(SearchFormComponent);
+export const SearchForm = memo(SearchFormComponent);

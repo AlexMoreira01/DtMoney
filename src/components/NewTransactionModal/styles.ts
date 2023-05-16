@@ -6,6 +6,7 @@ export const Overlay = styled(Dialog.Overlay)`
   position: fixed; // Sempre fixo na tela, absolute não fica
   width: 100vw;
   height: 100vh;
+  z-index: 99999;
 
   /* top: 0 / botto: 0 / left: 0 / right:0 */
   inset: 0;
@@ -13,15 +14,27 @@ export const Overlay = styled(Dialog.Overlay)`
 `;
 
 export const Content = styled(Dialog.Content)`
-  min-width: 32rem;
-  border-radius: 6px;
-  padding: 2.5rem 3rem;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 24px;
+
+    position: absolute;
+    bottom: 0;
+  }
+
   background: ${(props) => props.theme["gray-800"]};
 
-  position: fixed; // Acompanhar o overlay
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @media screen and (min-width: 768px) {
+    min-width: 32rem;
+    border-radius: 6px;
+    padding: 2.5rem 3rem;
+
+    position: fixed; // Acompanhar o overlay
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   form {
     margin-top: 2rem;

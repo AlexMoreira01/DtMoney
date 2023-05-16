@@ -15,17 +15,33 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    img {
+      width: 117px;
+      height: 32px;
+    }
+  }
 `;
 
 export const NewTransactionButton = styled.button`
   height: 50px;
-  border: 0;
+
   background: ${(props) => props.theme["green-500"]};
   color: ${(props) => props.theme.white};
+
   font-weight: bold;
+  font-size: 0.875rem;
   padding: 0 1.25rem;
+
+  border: 0;
   border-radius: 6px;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    height: 38px;
+    padding: 8px 16px;
+  }
 
   &:hover {
     background: ${(props) => props.theme["green-700"]};
